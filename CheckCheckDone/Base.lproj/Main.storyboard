@@ -75,7 +75,11 @@
                                                     <rect key="frame" x="13" y="8" width="537" height="30"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="done:" destination="L2j-RQ-2bX" eventType="editingDidEndOnExit" id="N8V-63-A96"/>
+                                                        <outlet property="delegate" destination="L2j-RQ-2bX" id="h6Y-Lt-Ray"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <animations/>
@@ -96,13 +100,14 @@
                                 <action selector="cancel:" destination="L2j-RQ-2bX" id="pok-oI-gta"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Axl-Mv-czn">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="Axl-Mv-czn">
                             <connections>
                                 <action selector="done:" destination="L2j-RQ-2bX" id="Lfz-Nl-4MY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneBarButton" destination="Axl-Mv-czn" id="ldr-S8-eTf"/>
                         <outlet property="textField" destination="Jnh-Vk-Brk" id="3gS-ZG-408"/>
                     </connections>
                 </tableViewController>
