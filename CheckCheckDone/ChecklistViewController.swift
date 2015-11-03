@@ -11,6 +11,8 @@ import UIKit
 class ChecklistViewController: UITableViewController {
     
     var items: [ChecklistItem]
+    
+    
     required init?(coder aDecoder: NSCoder) {
         items = [ChecklistItem]()
         let row0item = ChecklistItem()
@@ -51,6 +53,8 @@ class ChecklistViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK:  Tableview Delegates
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -77,6 +81,23 @@ class ChecklistViewController: UITableViewController {
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
+    
+
+    @IBAction func addItem(sender: UIBarButtonItem) {
+        let newRowIndex = items.count
+        let item = ChecklistItem()
+        item.text = "I am a new row"
+        item.checked = false
+        items.append(item)
+        
+        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+    }
+    
+    
+// MARK: Helper methods
+    
     
     func configureCheckmarkForCell(cell: UITableViewCell, withChecklistItem item: ChecklistItem) {
         
