@@ -53,7 +53,7 @@ class ChecklistViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK:  Tableview Delegates
+    // MARK:  Table view methods
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
@@ -82,12 +82,25 @@ class ChecklistViewController: UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        // 1.
+        
+        items.removeAtIndex(indexPath.row)
+        
+        // 2.
+        let indexPaths = [indexPath]
+        tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+        
+    }
+    
+    // MARK: IBActions
+    
 
     @IBAction func addItem(sender: UIBarButtonItem) {
         let newRowIndex = items.count
         let item = ChecklistItem()
-        item.text = "I am a new row"
-        item.checked = false
+        item.text = "I am the new row, same as the old row"
+        item.checked = true
         items.append(item)
         
         let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
