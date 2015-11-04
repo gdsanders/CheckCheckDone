@@ -93,31 +93,18 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         
     }
     
-    // MARK: IBActions
-    
-
-    @IBAction func addItem(sender: UIBarButtonItem) {
-        let newRowIndex = items.count
-        let item = ChecklistItem()
-        item.text = "I am the new row, same as the old row"
-        item.checked = true
-        items.append(item)
         
-        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
-    }
-    
     
 // MARK: Helper methods
     
     
     func configureCheckmarkForCell(cell: UITableViewCell, withChecklistItem item: ChecklistItem) {
         
-        if item.checked {
-            cell.accessoryType = .Checkmark
+        print(cell.viewWithTag(1002))
+        let label = cell.viewWithTag(1002) as! UILabel
+        if item.checked { label.text = "√"
         } else {
-            cell.accessoryType = .None
+            label.text = ""
         }
     }
     
