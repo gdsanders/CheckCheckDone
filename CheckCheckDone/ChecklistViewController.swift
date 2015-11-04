@@ -102,7 +102,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         
         print(cell.viewWithTag(1002))
         let label = cell.viewWithTag(1002) as! UILabel
-        if item.checked { label.text = "√"
+        if item.checked { label.text = "✓"
         } else {
             label.text = ""
         }
