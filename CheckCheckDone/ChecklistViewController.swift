@@ -41,6 +41,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         items.append(row4item)
         
         super.init(coder: aDecoder)
+        print("Documents folder is \(documentsDirectory())")
+        print("Data file path is \(dataFilePath())")
     }
 
     override func viewDidLoad() {
@@ -172,10 +174,25 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         }
         
     }
-
     
-}
+    // MARK: Document store functions
+    
+    func documentsDirectory() -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        
+        return paths[0]
+    }
+    
+ 
+    func dataFilePath() -> String {
+        let directory = documentsDirectory() as NSString
+    
+    return directory.stringByAppendingPathComponent("Checklists.plist")
+        
+    }
+    
 
+}
 
 
 
