@@ -82,6 +82,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             configureCheckmarkForCell(cell, withChecklistItem: item)        }
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        saveChecklistItems()
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -92,6 +93,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         // 2.
         let indexPaths = [indexPath]
         tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+        saveChecklistItems()
         
     }
     
@@ -132,6 +134,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         withRowAnimation: .Automatic)
         
         dismissViewControllerAnimated(true, completion: nil)
+        saveChecklistItems()
     }
     
     func itemDetailViewController(controller: ItemDetailViewController, didFinishEditingItem item: ChecklistItem) {
@@ -140,8 +143,10 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             if let cell = tableView.cellForRowAtIndexPath(indexPath) {
             configureTextForCell(cell, withChecklistItem: item)
             }
+            saveChecklistItems()
         }
         dismissViewControllerAnimated(true, completion: nil) }
+    
     
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -189,6 +194,14 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     return directory.stringByAppendingPathComponent("Checklists.plist")
         
+    }
+    
+    func saveChecklistItems() {
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+        archiver.encodeObject(items, forKey: "ChecklistItems")
+        archiver.finishEncoding()
+        data.writeToFile(dataFilePath(), atomically: true)
     }
     
 
