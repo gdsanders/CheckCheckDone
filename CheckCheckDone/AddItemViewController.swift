@@ -10,8 +10,12 @@ import Foundation
 import UIKit
 
 protocol AddItemViewControllerDelegate: class {
-    func addItemViewControllerDidCancel(controller: AddItemViewController); func addItemViewController(controller: AddItemViewController,
+    func addItemViewControllerDidCancel(controller: AddItemViewController)
+    
+    func addItemViewController(controller: AddItemViewController,
     didFinishAddingItem item: ChecklistItem)
+    
+    func addItemViewController(controller: AddItemViewController, didFinishEditingItem item: ChecklistItem)
 }
 
 class AddItemViewController: UITableViewController, UITextFieldDelegate {
@@ -35,6 +39,7 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
             if let item = itemToEdit {
                 title = "Edit Item"
                 textField.text = item.text
+                doneBarButton.enabled = true
             }
         }
         
@@ -53,11 +58,16 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     
     @IBAction func done(sender: UIBarButtonItem) {
             
+        if let item = itemToEdit {
+            item.text = textField.text!
+            delegate?.addItemViewController(self, didFinishEditingItem: item)
+        
+        } else {
             let item = ChecklistItem()
             item.text = textField.text!
             item.checked = false
             delegate?.addItemViewController(self, didFinishAddingItem: item)
-        
+        }
     }
     
     // MARK: Text field delegate method
@@ -70,6 +80,9 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         
         return true
     }
+        
+    
+        
     
 }
 
