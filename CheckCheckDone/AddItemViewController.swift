@@ -29,6 +29,7 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     }
         
     override func viewDidLoad() {
+           
             super.viewDidLoad()
            
             if let item = itemToEdit {
@@ -43,7 +44,7 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         textField.becomeFirstResponder()
     }
     
-    // MARK: IBActions
+    // MARK: IBActions for Cancel and Done
     
     @IBAction func cancel(sender: UIBarButtonItem) {
         
