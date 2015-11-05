@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {
+class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
     
     var items: [ChecklistItem]
     
@@ -100,7 +100,6 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     
     func configureCheckmarkForCell(cell: UITableViewCell, withChecklistItem item: ChecklistItem) {
         
-        print(cell.viewWithTag(1002))
         let label = cell.viewWithTag(1002) as! UILabel
         if item.checked { label.text = "✓"
         } else {
@@ -113,14 +112,14 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         label.text = item.text
     }
     
-    // MARK:  AddItemViewController - Delegate methods
+    // MARK:  ItemDetailViewController - Delegate methods
     
-    func addItemViewControllerDidCancel(controller: AddItemViewController) {
+    func itemDetailViewControllerDidCancel(controller: ItemDetailViewController) {
         
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func addItemViewController(controller: AddItemViewController, didFinishAddingItem item: ChecklistItem) {
+    func itemDetailViewController(controller: ItemDetailViewController, didFinishAddingItem item: ChecklistItem) {
         let newRowIndex = items.count
         
         items.append(item)
@@ -133,7 +132,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func addItemViewController(controller: AddItemViewController, didFinishEditingItem item: ChecklistItem) {
+    func itemDetailViewController(controller: ItemDetailViewController, didFinishEditingItem item: ChecklistItem) {
         if let index = items.indexOf(item) {
             let indexPath = NSIndexPath(forRow: index, inSection: 0)
             if let cell = tableView.cellForRowAtIndexPath(indexPath) {
@@ -151,7 +150,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
                 as! UINavigationController
         
         let controller = navigationController.topViewController
-            as! AddItemViewController
+            as! ItemDetailViewController
         
         controller.delegate = self
     
@@ -162,7 +161,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
             as! UINavigationController
         
         let controller = navigationController.topViewController
-            as! AddItemViewController
+            as! ItemDetailViewController
         
         controller.delegate = self
         
