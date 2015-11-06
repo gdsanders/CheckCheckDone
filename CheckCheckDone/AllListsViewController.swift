@@ -26,6 +26,10 @@ class AllListsViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("ShowChecklist", sender: nil)
+    }
 
     
 
