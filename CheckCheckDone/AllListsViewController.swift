@@ -9,6 +9,8 @@
 import UIKit
 
 class AllListsViewController: UITableViewController {
+    
+    var lists: [Checklist]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,9 +50,12 @@ class AllListsViewController: UITableViewController {
         
     }
     
-    func cellForTableView(tableView: UITableView) -> UITableViewCell { let cellIdentifier = "Cell"
-        if let cell =
-        tableView.dequeueReusableCellWithIdentifier(cellIdentifier) { return cell
+    func cellForTableView(tableView: UITableView) -> UITableViewCell {
+        
+        let cellIdentifier = "Cell"
+        
+        if let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) {
+            return cell
         } else {
             return UITableViewCell(style: .Default, reuseIdentifier: cellIdentifier)
         }
