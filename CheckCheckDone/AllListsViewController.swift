@@ -26,6 +26,28 @@ class AllListsViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        // 1
+        lists = [Checklist]()
+        // 2
+        super.init(coder: aDecoder)
+        // 3
+        var list = Checklist()
+        
+        list.name = "Birthdays"
+        lists.append(list)
+        // 4
+        list = Checklist()
+        list.name = "Groceries"
+        lists.append(list)
+        list = Checklist()
+        list.name = "Cool Apps"
+        lists.append(list)
+        list = Checklist()
+        list.name = "To Do"
+        lists.append(list)
+    }
 
     // MARK: - Table view data source
     
