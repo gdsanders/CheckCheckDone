@@ -58,7 +58,7 @@ class AllListsViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return lists.count
     }
 
     
@@ -66,6 +66,11 @@ class AllListsViewController: UITableViewController {
         
         let cell = cellForTableView(tableView)
         cell.textLabel!.text = "List \(indexPath.row)"
+    
+        let checklist = lists[indexPath.row]
+        cell.textLabel!.text = checklist.name
+        cell.accessoryType = .DetailDisclosureButton
+    
         return cell
 
         
