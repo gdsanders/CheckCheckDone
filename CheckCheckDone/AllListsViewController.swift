@@ -28,26 +28,25 @@ class AllListsViewController: UITableViewController {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        // 1
-        lists = [Checklist]()
-        // 2
-        super.init(coder: aDecoder)
-        // 3
-        var list = Checklist()
         
-        list.name = "Birthdays"
+        lists = [Checklist]()
+        
+        super.init(coder: aDecoder)
+        
+        var list = Checklist(name: "Birthdays")
         lists.append(list)
-        // 4
-        list = Checklist()
-        list.name = "Groceries"
+        
+        list = Checklist(name: "Groceries")
         lists.append(list)
-        list = Checklist()
-        list.name = "Cool Apps"
+        
+        list = Checklist(name: "Cool Apps")
         lists.append(list)
-        list = Checklist()
-        list.name = "To Do"
+        
+        list = Checklist(name: "To Do")
         lists.append(list)
     }
+    
+    
 
     // MARK: - Table view data source
     
