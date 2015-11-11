@@ -51,7 +51,8 @@ class AllListsViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("ShowChecklist", sender: nil)
+        let checklist = lists[indexPath.row]
+        performSegueWithIdentifier("ShowChecklist", sender: checklist)
     }
 
     
@@ -72,10 +73,15 @@ class AllListsViewController: UITableViewController {
         cell.accessoryType = .DetailDisclosureButton
     
         return cell
-
-        
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowChecklist" {
+            let controller = segue.destinationViewController as! ChecklistViewController
+            controller.checklist = sender as! Checklist }
+        }
+    }
+
     func cellForTableView(tableView: UITableView) -> UITableViewCell {
         
         let cellIdentifier = "Cell"
@@ -89,4 +95,4 @@ class AllListsViewController: UITableViewController {
     
 
    
-}
+
