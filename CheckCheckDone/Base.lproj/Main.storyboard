@@ -26,7 +26,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPu-ny-LiX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1119" y="423"/>
+            <point key="canvasLocation" x="1143" y="423"/>
         </scene>
         <!--Name of the Checklist-->
         <scene sceneID="I5S-hx-MCx">
@@ -146,7 +146,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFC-e4-7UD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3417" y="423"/>
+            <point key="canvasLocation" x="3327" y="423"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hdQ-m6-m70">

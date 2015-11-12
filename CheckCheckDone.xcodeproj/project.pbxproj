@@ -16,6 +16,7 @@
 		63AB88CA1BE8755A00D945E8 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB88C91BE8755A00D945E8 /* ItemDetailViewController.swift */; };
 		63AB88D21BED613C00D945E8 /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB88D11BED613C00D945E8 /* AllListsViewController.swift */; };
 		63AB88D41BEDC9D900D945E8 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB88D31BEDC9D900D945E8 /* Checklist.swift */; };
+		63C505AE1BF443A0001576F1 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C505AD1BF443A0001576F1 /* ListDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		63AB88C91BE8755A00D945E8 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ItemDetailViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		63AB88D11BED613C00D945E8 /* AllListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
 		63AB88D31BEDC9D900D945E8 /* Checklist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
+		63C505AD1BF443A0001576F1 /* ListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				63AB88C91BE8755A00D945E8 /* ItemDetailViewController.swift */,
 				63AB88D11BED613C00D945E8 /* AllListsViewController.swift */,
 				63AB88D31BEDC9D900D945E8 /* Checklist.swift */,
+				63C505AD1BF443A0001576F1 /* ListDetailViewController.swift */,
 			);
 			path = CheckCheckDone;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63AB88B61BE4062700D945E8 /* ChecklistViewController.swift in Sources */,
+				63C505AE1BF443A0001576F1 /* ListDetailViewController.swift in Sources */,
 				63AB88CA1BE8755A00D945E8 /* ItemDetailViewController.swift in Sources */,
 				63AB88D41BEDC9D900D945E8 /* Checklist.swift in Sources */,
 				63AB88C61BE7E37300D945E8 /* ChecklistItem.swift in Sources */,
